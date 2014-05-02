@@ -11,6 +11,24 @@
 			return static::$types;			
 		}
 		
+		public static function __callStatic($name, $arguments) {
+			$allTypes = static::getAllTypes();
+			$type = array_shift($arguments);
+			if(isset($allTypes[$type])) {
+				$details = $allTypes[$type];
+			} else {
+				Throw new Exception("$type is not a defined type");
+			}
+			
+			// add the arguments back in
+			array_unshift($arguments, $details);
+			array_unshift($arguments, $type);
+			
+			$functionName = $name . 'Function';
+			
+			return call_user_func_array(array(static::$className, $functionName), $arguments);
+		}
+		
 		protected static function setTypes() {
 			if(static::$types == null) {
 				$typeArray = static::buildIndexedArrayBasedOnSuffix('Type');

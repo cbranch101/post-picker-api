@@ -111,6 +111,7 @@
 			return array(
 				'all' => self::getAllEntryPoint(),
 				'get_all_types' => self::getGetAllTypesEntryPoint(),
+				'add_number' => self::getAddNumberEntryPoint(),
 			);
 			
 		}
@@ -118,6 +119,7 @@
 		public function getConfigurationMap() {
 			return array(
 				'base' => self::getBaseConfiguration(),
+				'base_add_number' => self::getBaseAddNumberConfiguration(),
 			);
 		}
 				
@@ -163,6 +165,37 @@
 				},
 			);
 		}
+		
+		public function getAddNumberEntryPoint() {
+			$test = $this;
+			return array(
+				'get_output' => function($input, $extraParams) use($test){	
+					
+					$number = $input['number'];
+					$type = $input['type'];
+						
+					$result =  Stub_Transform::addNumber($type, $number);
+					
+					return array(
+						'number' => $result,
+					);
+				},
+			);
+		}
+		
+		public function getBaseAddNumberConfiguration() {
+			return array(
+				'input' => array(
+					'number' => 5,
+					'type' => 'first_test',
+				),
+				'assert_input' => array(
+					'expected' => array(
+						'number' => 6,
+					),	
+				),
+			);
+		}
 				
 		public function getBaseConfiguration() {
 						
@@ -177,10 +210,12 @@
 							'first_test' => array(
 								'is_valid' => true,
 								'is_init' => true,
+								'amount_to_add' => 1,
 							),
 							'second_test' => array(
 								'is_valid' => false,
 								'is_init' => true,
+								'amount_to_add' => 2,
 							),
 						),
 					),	
@@ -317,6 +352,38 @@
 			$test = array(
 				'configuration' => 'base',
 				'entry_point' => 'get_all_types',
+			);
+			
+			self::buildTest($test);
+			
+		}
+		
+		public function testBaseAddNumber() {
+						
+			$test = array(
+				'configuration' => 'base_add_number',
+				'entry_point' => 'add_number',
+			);
+			
+			self::buildTest($test);
+			
+		}
+		
+		public function testBaseAddNumber2() {
+						
+			$test = array(
+				'configuration' => 'base_add_number',
+				'entry_point' => 'add_number',
+				'alterations' => array(
+					'input' => function($input) {
+						$input['type'] = 'second_test';
+						return $input;
+					},
+					'assert_input' => function($assertInput) {
+						$assertInput['expected']['number'] = 7;
+						return $assertInput;
+					}
+				),
 			);
 			
 			self::buildTest($test);

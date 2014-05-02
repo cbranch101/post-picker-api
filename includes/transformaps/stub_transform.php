@@ -21,5 +21,8 @@
 			);
 		}
 		
+		public static function addNumberFunction($type, $details, $number) {
+			return $number + $details['amount_to_add'];
+		}
 		
 	}
