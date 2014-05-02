@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Gives us the GIT_BRANCH variable
+. ~/.gitutils
+
+# Define variables
+HTTP_PATH="/var/www/vhosts/fbdev.me/httpdocs/apps"
+APP_LIVE="$HTTP_PATH/mvmt_social_dash/post_dashboard"
+APP_STAGING="$HTTP_PATH/mvmt_social_dash_staging/post_dashboard"
+
+case $GIT_BRANCH in
+  "refs/heads/master")
+    mkdir -p $HTTP_PATH
+    GIT_WORK_TREE=$APP_LIVE git reset --hard HEAD
+    echo "Pushed into dev branch 'master'"
+    ;;
+
+  "refs/heads/stage")
+    mkdir -p $HTTP_PATH
+    GIT_WORK_TREE=$APP_STAGING git reset --hard HEAD
+    echo "Pushed into dev branch 'stage'"
+    ;;
+esac
+
