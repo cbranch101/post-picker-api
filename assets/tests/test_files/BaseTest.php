@@ -20,8 +20,6 @@
 		static $passedIntoTableBuilder = array();
 		
 		static $collectionsToReset = array(
-			'sample_dashboards',
-			'users',
 		);
 				
 		function __construct() {

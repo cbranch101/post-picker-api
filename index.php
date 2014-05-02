@@ -18,6 +18,7 @@ App::$instance = $app;
 			'libs' => array(
 				'fb_sdk/facebook.php',
 				'php_mongorm/php_mongorm.php',
+				'transformap/transformap.php',
 			),
 			'controllers' => array(
 				'post.php',
