@@ -9,6 +9,7 @@
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/output_array.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/shared_data.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/data_pipeline.php');
+	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/random_selection.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/random_number_generator.php');	
 	class RandomItemTest extends PHPUnit_Framework_TestCase {
 		
