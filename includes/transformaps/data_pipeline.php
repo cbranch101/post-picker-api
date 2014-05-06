@@ -13,9 +13,7 @@
 			$output = array();
 			__::map($outputArrays, function($outputArrayName) use(&$output){
 				$output = Output_Array::get($outputArrayName, $output);
-			});
-			
-			
+			});			
 			
 			return $output;
 		}
