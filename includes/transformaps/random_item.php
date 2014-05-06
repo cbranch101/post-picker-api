@@ -21,7 +21,9 @@
 				'get_from_collection' => function($collection) {
 					$totalItems = App::$cache->get('total_items');
 					
+					$rightIsHigh = App::$cache->get('right_is_high');
 					
+					print_r($rightIsHigh);
 												
 					$offset = Random_Item::getRandomOffset(.20, .80);
 					
