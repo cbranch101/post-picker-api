@@ -275,6 +275,9 @@
 						// this value is going to be used to assign whether or not the 
 						// right random item is high or not 
 						6,
+						
+						// this is the value that will be used as the random offset
+						8,
 					),	
 				),
 				'extra_params' => array(
