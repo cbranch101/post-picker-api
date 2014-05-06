@@ -498,20 +498,11 @@
 					},
 					'assert_input' => function($assertInput){
 						$assertInput['expected'] = array(
-							'random_items' => array(
-								'left' => array(
-									'_id' => 3,
-									'likes' => array(
-										'value' => 300,
-										'formatted_value' => null,
-									),
-									'message' => array(
-										'value' => 'Test',
-										'formatted_value' => 'Test',
-										'data' => array(
-											'has_picture' => true,
-										),
-									),
+							'posts' => array(
+								array(
+									'name' => 'left',
+									'metric' => 300,
+									'is_correct' => false,
 								),
 							),
 						);
