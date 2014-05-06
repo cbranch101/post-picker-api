@@ -13,26 +13,12 @@
 		}
 		
 		public static function processRandomItem($randomItem, $selectionType) {
-			$randomItem['metric'] = $randomItem['likes']['value'];
-			$randomItem = self::unsetKeys($randomItem);
-			return $randomItem;
+			$processedItem = array();
+			$processedItem['metric'] = $randomItem['likes']['value'];
+			$processedItem['is_correct'] = $selectionType == 'high' ? true : false;
+			return $processedItem;
 		}
-		
-		public static function unsetKeys($randomItem) {
-			$output = array();
-			$keysToInclude = array(
-				'metric',
-			);
-			
-			__::map($randomItem, function($value, $key) use(&$output, $keysToInclude){
-				if(in_array($key, $keysToInclude)) {
-					$output[$key] = $value;
-				}
-			});
-			
-			return $output;
-		}
-		
+				
 		public static function getSelectionType($randomItemType) {
 			$rightIsHigh = App::$cache->get('right_is_high');
 			if($randomItemType == 'right') {
