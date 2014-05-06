@@ -9,7 +9,7 @@
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/output_array.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/shared_data.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/data_pipeline.php');
-	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/random_number_generator');	
+	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/random_number_generator.php');	
 	class RandomItemTest extends PHPUnit_Framework_TestCase {
 		
 		static $functionalBuilderConfig;
@@ -273,8 +273,7 @@
 						// this value is going to be used to assign whether or not the 
 						// right random item is high or not 
 						6,
-					),
-					
+					),	
 				),
 				'extra_params' => array(
 					'collections_to_populate' => array(
