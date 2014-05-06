@@ -17,7 +17,7 @@
 		
 		static $verifyKey = null;
 				
-		static $verifyExpectedActual = false;
+		static $verifyExpectedActual = true;
 		
 		static $levelsToDrillDown = 1;
 		

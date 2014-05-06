@@ -9,7 +9,10 @@
 			self::setRandomNumberGenerator();
 			$selectionType = self::getSelectionType($type);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
-			return $details['get_from_collection']($collection, $selectionType);
+			$totalItems = App::$cache->get('total_items');
+			$offset = Random_Selection::getRandomOffset($selectionType);
+			$randomItem = Random_Item::getItemWithOffset($collection, $offset);		
+			return $randomItem;
 		}
 		
 		public static function getSelectionTypeFunction($type, $details) {
@@ -27,18 +30,7 @@
 				self::$randomNumberGenerator = new Random_Number_Generator();
 			}
 		}
-		
-		public static function rightType() {
-			return array(
-				'get_from_collection' => function($collection, $selectionType) {
-					$totalItems = App::$cache->get('total_items');
-					$offset = Random_Selection::getRandomOffset($selectionType);
-					$randomItem = Random_Item::getItemWithOffset($collection, $offset);		
-					return $randomItem;
-				},	
-			);
-		}
-		
+				
 		public static function getItemWithOffset($collection, $offset) {
 			$item = $collection->find_many()
 				->find_one()
