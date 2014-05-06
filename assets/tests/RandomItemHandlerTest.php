@@ -325,6 +325,7 @@
 						'posts' => array(
 							array(
 								'name' => 'right',
+								'message' => 'Test',
 								'metric' => 800,
 								'is_correct' => true,
 							),
@@ -502,6 +503,7 @@
 								array(
 									'name' => 'left',
 									'metric' => 300,
+									'message' => 'Test',
 									'is_correct' => false,
 								),
 							),

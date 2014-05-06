@@ -16,6 +16,7 @@
 			$processedItem = array();
 			$processedItem['metric'] = $randomItem['likes']['value'];
 			$processedItem['is_correct'] = $selectionType == 'high' ? true : false;
+			$processedItem['message'] = $randomItem['message']['formatted_value'];
 			return $processedItem;
 		}
 				
