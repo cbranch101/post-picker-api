@@ -44,7 +44,7 @@
 		
 		public function total_items() {
 			$count = MongORM::for_collection(App::$cache->get('collection_name'))
-				->find_many()
+				->find_many($this->get('facebook_filter_query'))
 				->count();
 			return $count;
 		}
