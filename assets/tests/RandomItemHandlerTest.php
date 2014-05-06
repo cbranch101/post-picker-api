@@ -274,6 +274,22 @@
 						),
 					),
 				),
+				
+				// should be filtered out
+				array(
+					'_id' => 13,
+					'likes' => array(
+						'value' => 0,
+						'formatted_value' => null,
+					),
+					'message' => array(
+						'value' => 'Test',
+						'formatted_value' => 'Test',
+						'data' => array(
+							'has_picture' => false,
+						),
+					),
+				),
 			);
 		}
 				
