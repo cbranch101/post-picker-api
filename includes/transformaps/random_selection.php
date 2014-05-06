@@ -10,6 +10,17 @@
 			
 		}
 		
+		public static function getRandomOffset($lowPercentage, $highPercentage) {
+			$offsetMin = self::getTotalItemOffset($lowPercentage);
+			$offsetMax = self::getTotalItemOffset($highPercentage);
+			return rand($offsetMin, $offsetMax);
+		}
+		
+		public static function getTotalItemOffset($percentage) {
+			$offset = round(App::$cache->get('total_items') * $percentage, 0);
+			return $offset;
+		}
+		
 		public static function highType() {
 			return array(
 				'offset_params' => array(
