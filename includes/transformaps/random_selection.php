@@ -34,4 +34,13 @@
 			);
 		}
 		
+		public static function lowType() {
+			return array(
+				'offset_params' => array(
+					'min' => '.10',
+					'max' => '.40',
+				),
+			);
+		}
+		
 	}
