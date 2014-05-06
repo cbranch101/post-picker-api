@@ -46,6 +46,7 @@
 			$count = MongORM::for_collection(App::$cache->get('collection_name'))
 				->find_many($this->get('facebook_filter_query'))
 				->count();
+				
 			return $count;
 		}
 		
@@ -75,6 +76,7 @@
 			if($value == $emptyValue && $required) {
 				throw new Exception("$key is required in request params");
 			}
+			return $value;
 		}			
 	
 	}
