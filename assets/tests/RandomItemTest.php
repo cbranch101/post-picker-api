@@ -195,7 +195,10 @@
 			$test = $this;
 			return array(
 				'get_output' => function($input, $extraParams) use($test){	
-					App::$cache = RandomItemTest::getStubCache($input['stub_shared_data'], $test);
+					$stubSharedData = $input['stub_shared_data'];
+					App::$cache = RandomItemTest::getStubCache($stubSharedData, $test);
+			
+						
 					Random_Item::$randomNumberGenerator = RandomItemTest::getStubRandomNumberGenerator($test, $input['stub_random_values']);
 					RandomItemTest::populateCollections($extraParams['collections_to_populate']);
 					return Data_Pipeline::run('get_random_items');
