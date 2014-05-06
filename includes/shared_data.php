@@ -60,6 +60,9 @@
 				'message.formatted_value' => array(
 					'$ne' => ""
 				),
+				'likes.value' => array(
+					'$gt' => 0, 
+				),
 			);					
 		}
 		
