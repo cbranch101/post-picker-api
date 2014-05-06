@@ -52,6 +52,7 @@
 		// randomly select if right should be high or low
 		public function right_is_high() {
 			$value = rand(0, 10);
+			print_r($value);
 			return $value > 5;
 		}
 		
