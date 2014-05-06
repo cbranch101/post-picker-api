@@ -49,6 +49,10 @@
 			return $count;
 		}
 		
+		public function random_number_generator() {
+			return new Random_Number_Generator();
+		}
+		
 		// randomly select if right should be high or low
 		public function right_is_high() {
 			$value = Random_Item::$randomNumberGenerator->rand(1, 10);
