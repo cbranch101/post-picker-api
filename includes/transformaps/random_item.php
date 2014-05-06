@@ -7,8 +7,9 @@
 		
 		public static function getFunction($type, $details) {
 			self::setRandomNumberGenerator();
+			$selectionType = self::getSelectionType($type);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
-			return $details['get_from_collection']($collection);
+			return $details['get_from_collection']($collection, $selectionType);
 		}
 		
 		public static function getSelectionTypeFunction($type, $details) {
@@ -29,11 +30,10 @@
 		
 		public static function rightType() {
 			return array(
-				'get_from_collection' => function($collection) {
+				'get_from_collection' => function($collection, $selectionType) {
 					$totalItems = App::$cache->get('total_items');
-					
-					
-												
+					print_r($selectionType);
+											
 					$offset = Random_Item::getRandomOffset(.20, .80);
 					
 					$results = $collection->find_many()
