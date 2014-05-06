@@ -322,20 +322,11 @@
 				),
 				'assert_input' => array(
 					'expected' => array(
-						'random_items' => array(
-							'right' => array(
-								'_id' => 8,
-								'likes' => array(
-									'value' => 800,
-									'formatted_value' => null,
-								),
-								'message' => array(
-									'value' => 'Test',
-									'formatted_value' => 'Test',
-									'data' => array(
-										'has_picture' => true,
-									),
-								),
+						'posts' => array(
+							array(
+								'name' => 'right',
+								'metric' => 800,
+								'is_correct' => true,
 							),
 						),
 					),	
