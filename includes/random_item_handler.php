@@ -2,7 +2,7 @@
 
 	class Random_Item_Handler {
 				
-		public static function get($randomItemType) {
+		public static function getItem($randomItemType) {
 			$selectionType = self::getSelectionType($randomItemType);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
