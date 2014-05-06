@@ -21,13 +21,6 @@
 			return $selectionType;
 		}
 				
-		public static function rightType() {
-			return array(
-				'get_from_collection' => function($collection, $selectionType) {
-				},	
-			);
-		}
-				
 		public static function getItemWithOffset($collection, $offset) {
 			$item = $collection->find_many()
 				->find_one()
@@ -36,13 +29,5 @@
 				
 			return reset($item);
 		}
-						
-		public static function leftType() {
-			return array(
-				'get_from_collection' => function($collection) {
-					return array();	
-				},	
-			);
-		}
-		
+								
 	}
