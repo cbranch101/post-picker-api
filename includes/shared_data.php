@@ -55,23 +55,7 @@
 			print_r($value);
 			return $value > 5;
 		}
-		
-		public function right_offset() {
-			return $this->get('right_is_high') ? $this->get('high_random_offset') : $this->get('low_random_offset');
-		}
-		
-		public function low_offset() {
-			
-		}
-		
-		public function high_random_offset() {
-			
-		}
-		
-		public function low_random_offset() {
-			
-		}
-		
+				
 		public function getFromRequestParams($key, $emptyValue) {
 			$requestParams = $this->get('request_params');
 			return __::grab($requestParams, $key, $emptyValue);
