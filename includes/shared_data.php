@@ -57,7 +57,6 @@
 		public function right_is_high() {
 			$generator = $this->get('random_number_generator');
 			$value = $generator->rand(1, 10);
-			print_r($value);
 			return $value > 5;
 		}
 				
