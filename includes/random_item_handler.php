@@ -1,13 +1,13 @@
 <?php
 
-	class Random_Item {
+	class Random_Item_Handler {
 				
 		public static function get($type) {
 			$selectionType = self::getSelectionType($type);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
 			$offset = Random_Selection::getRandomOffset($selectionType);
-			$randomItem = Random_Item::getItemWithOffset($collection, $offset);		
+			$randomItem = self::getItemWithOffset($collection, $offset);		
 			return $randomItem;
 		}
 		

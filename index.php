@@ -27,10 +27,11 @@ App::$instance = $app;
 				'config.php',
 				'app.php',
 				'shared_data.php',
+				'random_item_handler.php',
 				'random_number_generator.php',
 				'transformaps/data_pipeline.php',
 				'transformaps/output_array.php',
-				'transformaps/random_item.php',
+				
 			),
 		),
 	);

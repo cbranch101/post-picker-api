@@ -5,7 +5,7 @@
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/libs/php_mongorm/php_mongorm.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/app.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/libs/transformap/transformap.php');
-	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/random_item.php');
+	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/random_item_handler.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/output_array.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/shared_data.php');
 	require_once('/Users/cbranch101/Sites/clay/movement_strategy/post_picker_api/includes/transformaps/data_pipeline.php');
