@@ -13,6 +13,7 @@
 		}
 		
 		public static function processRandomItem($randomItem, $selectionType) {
+			$randomItem['metric'] = $randomItem['likes']['value'];
 			$randomItem = self::unsetKeys($randomItem);
 			return $randomItem;
 		}
