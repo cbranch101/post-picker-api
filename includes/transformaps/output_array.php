@@ -13,13 +13,20 @@
 		public static function randomItemsType() {
 			return array(
 				'get_output' => function($inputParams) {
-					$output = array();
+					$randomItems = array();
 					
-					__::map(App::$cache->get('random_items'), function($randomItemType) use(&$output){
-						$output[$randomItemType] = Random_Item_Handler::getItem($randomItemType);
-					});
+					$randomItems = __::chain(App::$cache->get('random_items')) 
+						->map(function($randomItemType) use(&$output){
+							$randomItem = Random_Item_Handler::getItem($randomItemType);
+							$randomItem['name'] = $randomItemType;
+							return $randomItem;
+						})
+						->values()
+					->value();
 					
-					return $output;
+					print_r($randomItems);
+										
+					return $randomItems;
 		
 				},
 				'output_key' => 'random_items',
