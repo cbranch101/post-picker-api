@@ -23,7 +23,7 @@
 				
 		public static function getItemWithOffset($collection, $offset) {
 			$item = $collection->find_many()
-				->find_one()
+				->find_one(App::$cache->get('facebook_filter_query'))
 				->skip($offset - 1)
 				->as_array();
 				
