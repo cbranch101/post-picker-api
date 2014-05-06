@@ -2,8 +2,8 @@
 
 	class Random_Item_Handler {
 				
-		public static function get($type) {
-			$selectionType = self::getSelectionType($type);
+		public static function get($randomItemType) {
+			$selectionType = self::getSelectionType($randomItemType);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
 			$offset = Random_Selection::getRandomOffset($selectionType);
@@ -11,9 +11,9 @@
 			return $randomItem;
 		}
 		
-		public static function getSelectionType($type) {
+		public static function getSelectionType($randomItemType) {
 			$rightIsHigh = App::$cache->get('right_is_high');
-			if($type == 'right') {
+			if($randomItemType == 'right') {
 				$selectionType = $rightIsHigh ? 'high' : 'low';
 			} else {
 				$selectionType = $rightIsHigh ? 'low' : 'high';
