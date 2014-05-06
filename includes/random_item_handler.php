@@ -13,6 +13,11 @@
 		}
 		
 		public static function processRandomItem($randomItem, $selectionType) {
+			$randomItem = self::unsetKeys($randomItem);
+			return $randomItem;
+		}
+		
+		public static function unsetKeys($randomItem) {
 			$keysToUnset = array(
 				'_id',
 			);
