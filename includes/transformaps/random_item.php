@@ -30,7 +30,21 @@
 				self::$randomNumberGenerator = new Random_Number_Generator();
 			}
 		}
-				
+		
+		public static function rightType() {
+			return array(
+				'get_from_collection' => function($collection, $selectionType) {
+				},	
+			);
+		}
+		
+		public static function leftType() {
+			return array(
+				'get_from_collection' => function($collection, $selectionType) {
+				},	
+			);
+		}
+		
 		public static function getItemWithOffset($collection, $offset) {
 			$item = $collection->find_many()
 				->find_one()
