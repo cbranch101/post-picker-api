@@ -11,6 +11,16 @@
 			return $details['get_from_collection']($collection);
 		}
 		
+		public static function getSelectionTypeFunction($type, $details) {
+			$rightIsHigh = App::$cache->get('right_is_high');
+			if($type == 'right') {
+				$selectionType = $rightIsHigh ? 'high' : 'low';
+			} else {
+				$selectionType = $rightIsHigh ? 'low' : 'high';
+			}
+			return $selectionType;
+		}
+		
 		public static function setRandomNumberGenerator() {
 			if(self::$randomNumberGenerator == null) {
 				self::$randomNumberGenerator = new Random_Number_Generator();
@@ -22,7 +32,7 @@
 				'get_from_collection' => function($collection) {
 					$totalItems = App::$cache->get('total_items');
 					
-					$rightIsHigh = App::$cache->get('right_is_high');
+					
 												
 					$offset = Random_Item::getRandomOffset(.20, .80);
 					
@@ -35,7 +45,7 @@
 				},	
 			);
 		}
-		
+				
 		public static function getRandomOffset($lowPercentage, $highPercentage) {
 			$offsetMin = self::getTotalItemOffset($lowPercentage);
 			$offsetMax = self::getTotalItemOffset($highPercentage);

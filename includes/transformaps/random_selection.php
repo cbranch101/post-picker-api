@@ -12,7 +12,7 @@
 		
 		public static function highType() {
 			return array(
-					
+				
 			);
 		}
 		
