@@ -6,6 +6,7 @@
 		public static $randomNumberGenerator;
 		
 		public static function getFunction($type, $details) {
+			self::setRandomNumberGenerator();
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			return $details['get_from_collection']($collection);
 		}
@@ -22,8 +23,6 @@
 					$totalItems = App::$cache->get('total_items');
 					
 					$rightIsHigh = App::$cache->get('right_is_high');
-					
-					print_r($rightIsHigh);
 												
 					$offset = Random_Item::getRandomOffset(.20, .80);
 					
