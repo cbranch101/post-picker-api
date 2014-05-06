@@ -441,6 +441,29 @@
 			$test = array(
 				'configuration' => 'right',
 				'entry_point' => 'get_random_item',
+				'alterations' => array(
+					'input' => function($input){
+						return array(
+							'stub_shared_data' => array(
+								'random_items' => array(
+									'left',
+								),
+								'request_params' => array(
+									'dashboard_id' => 'knicks',
+								),
+							),
+							'stub_random_values' => array(
+								
+								// this value is going to be used to assign whether or not the 
+								// right random item is high or not 
+								2,
+								
+								// this is the value that will be used as the random offset
+								3,
+							),	
+						);
+					},
+				),
 			);
 			
 			self::buildTest($test);
