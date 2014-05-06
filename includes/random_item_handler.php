@@ -6,7 +6,6 @@
 			$selectionType = self::getSelectionType($randomItemType);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
-			print_r($totalItems);
 			$offset = Random_Selection::getRandomOffset($selectionType);
 			$randomItem = self::getItemWithOffset($collection, $offset);		
 			return $randomItem;

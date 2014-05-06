@@ -281,6 +281,13 @@
 									'value' => 800,
 									'formatted_value' => null,
 								),
+								'message' => array(
+									'value' => 'Test',
+									'formatted_value' => 'Test',
+									'data' => array(
+										'has_picture' => true,
+									),
+								),
 							),
 						),
 					),	
@@ -458,6 +465,13 @@
 									'likes' => array(
 										'value' => 300,
 										'formatted_value' => null,
+									),
+									'message' => array(
+										'value' => 'Test',
+										'formatted_value' => 'Test',
+										'data' => array(
+											'has_picture' => true,
+										),
 									),
 								),
 							),
