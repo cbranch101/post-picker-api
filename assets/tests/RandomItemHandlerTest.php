@@ -232,16 +232,16 @@
 			};
 			
 			return array(
-				$getGoodPost(1, 100),
+				$getGoodPost(8, 800),
 				$getGoodPost(2, 200),
 				$getGoodPost(3, 300),
-				$getGoodPost(4, 400),
-				$getGoodPost(5, 500),
-				$getGoodPost(6, 600),
 				$getGoodPost(7, 700),
-				$getGoodPost(8, 800),
+				$getGoodPost(5, 500),
+				$getGoodPost(4, 400),
+				$getGoodPost(6, 600),
 				$getGoodPost(9, 900),
 				$getGoodPost(10, 1000),
+				$getGoodPost(1, 100),
 				
 				// should be filtered out
 				array(
