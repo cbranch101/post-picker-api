@@ -3,7 +3,6 @@
 	class Random_Item {
 				
 		public static function get($type) {
-			self::setRandomNumberGenerator();
 			$selectionType = self::getSelectionType($type);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
