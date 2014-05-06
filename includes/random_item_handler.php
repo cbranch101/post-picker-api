@@ -24,6 +24,9 @@
 		public static function getItemWithOffset($collection, $offset) {
 			$item = $collection->find_many()
 				->find_one(App::$cache->get('facebook_filter_query'))
+				->sort(
+					array('likes.value' => 1)
+				)
 				->skip($offset - 1)
 				->as_array();
 				

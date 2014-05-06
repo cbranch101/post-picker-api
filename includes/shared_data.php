@@ -59,7 +59,7 @@
 				'message.data.has_picture' => true,
 				'message.formatted_value' => array(
 					'$ne' => ""
-				),		
+				),
 			);					
 		}
 		
