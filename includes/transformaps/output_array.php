@@ -18,6 +18,8 @@
 					__::map(App::$cache->get('random_items'), function($randomItemType) use(&$output){
 						$output[$randomItemType] = Random_Item_Handler::getItem($randomItemType);
 					});
+					
+					print_r($output);
 																				
 					return $output;
 		
