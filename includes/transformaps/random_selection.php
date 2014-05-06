@@ -7,7 +7,9 @@
 		
 		// get a random offset for a given type
 		public static function getRandomOffsetFunction($type, $details) {
-			
+			$offsetParams = $details['offset_params'];
+			$offset = self::getRandomOffset($offsetParams['min'], $offsetParams['max']);
+			return $offset;
 		}
 		
 		public static function getRandomOffset($lowPercentage, $highPercentage) {
