@@ -267,8 +267,14 @@
 						'request_params' => array(
 							'dashboard_id' => 'knicks',
 						),
-						'right_is_high' => true,
 					),
+					'stub_random_values' => array(
+						
+						// this value is going to be used to assign whether or not the 
+						// right random item is high or not 
+						6,
+					),
+					
 				),
 				'extra_params' => array(
 					'collections_to_populate' => array(
