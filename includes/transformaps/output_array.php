@@ -15,8 +15,8 @@
 				'get_output' => function($inputParams) {
 					$output = array();
 					
-					__::map(App::$cache->get('random_items'), function($randomItem) use(&$output){
-						$output[$randomItem] = Random_Item_Handler::get($randomItem);
+					__::map(App::$cache->get('random_items'), function($randomItemType) use(&$output){
+						$output[$randomItemType] = Random_Item_Handler::get($randomItemType);
 					});
 																				
 					return $output;
