@@ -19,8 +19,6 @@
 						$output[$randomItemType] = Random_Item_Handler::getItem($randomItemType);
 					});
 					
-					print_r($output);
-																				
 					return $output;
 		
 				},
