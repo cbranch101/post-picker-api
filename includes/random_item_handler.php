@@ -17,6 +17,8 @@
 			$processedItem['metric'] = $randomItem['likes']['value'];
 			$processedItem['is_correct'] = $selectionType == 'high' ? true : false;
 			$processedItem['message'] = $randomItem['message']['formatted_value'];
+			$processedItem['image_url'] = $randomItem['message']['data']['post_picture_url'];
+
 			return $processedItem;
 		}
 				
