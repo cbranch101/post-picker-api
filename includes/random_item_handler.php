@@ -19,15 +19,18 @@
 		}
 		
 		public static function unsetKeys($randomItem) {
-			$keysToUnset = array(
-				'_id',
+			$output = array();
+			$keysToInclude = array(
+				'metric',
 			);
 			
-			__::map($keysToUnset, function($keyToUnset) use(&$randomItem){
-				unset($randomItem[$keyToUnset]);
+			__::map($randomItem, function($value, $key) use(&$output, $keysToInclude){
+				if(in_array($key, $keysToInclude)) {
+					$output[$key] = $value;
+				}
 			});
 			
-			return $randomItem;
+			return $output;
 		}
 		
 		public static function getSelectionType($randomItemType) {
