@@ -53,6 +53,15 @@
 			return new Random_Number_Generator();
 		}
 		
+		public function facebook_filter_query() {
+			return array(
+				'message.data.has_picture' => true,
+				'message.formatted_value' => array(
+					'$ne' => ""
+				),		
+			);					
+		}
+		
 		// randomly select if right should be high or low
 		public function right_is_high() {
 			$generator = $this->get('random_number_generator');
