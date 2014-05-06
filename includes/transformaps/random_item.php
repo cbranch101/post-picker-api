@@ -32,9 +32,8 @@
 			return array(
 				'get_from_collection' => function($collection, $selectionType) {
 					$totalItems = App::$cache->get('total_items');
-					print_r($selectionType);
 											
-					$offset = Random_Item::getRandomOffset(.20, .80);
+					$offset = Random_Selection::getRandomOffset($selectionType);
 					
 					$results = $collection->find_many()
 						->find_one()
