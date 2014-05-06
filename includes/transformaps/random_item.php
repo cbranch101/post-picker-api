@@ -3,6 +3,7 @@
 	class Random_Item extends TransforMap {
 		
 		protected static $types = array();
+		public static $randomNumberGenerator;
 		
 		public static function getFunction($type, $details) {
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
