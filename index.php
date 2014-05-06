@@ -31,6 +31,7 @@ App::$instance = $app;
 				'random_number_generator.php',
 				'transformaps/data_pipeline.php',
 				'transformaps/output_array.php',
+				'transformaps/random_selection.php',
 				
 			),
 		),
