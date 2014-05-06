@@ -1,10 +1,7 @@
 <?php
 
 	class Random_Item {
-		
-		protected static $types = array();
-		public static $randomNumberGenerator;
-		
+				
 		public static function get($type) {
 			self::setRandomNumberGenerator();
 			$selectionType = self::getSelectionType($type);
@@ -24,13 +21,7 @@
 			}
 			return $selectionType;
 		}
-		
-		public static function setRandomNumberGenerator() {
-			if(self::$randomNumberGenerator == null) {
-				self::$randomNumberGenerator = new Random_Number_Generator();
-			}
-		}
-		
+				
 		public static function rightType() {
 			return array(
 				'get_from_collection' => function($collection, $selectionType) {
