@@ -4,4 +4,10 @@
 		
 		protected static $types = array();
 		
+		public static function highType() {
+			return array(
+				
+			);
+		}
+		
 	}
