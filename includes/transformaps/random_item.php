@@ -1,11 +1,11 @@
 <?php
 
-	class Random_Item extends TransforMap {
+	class Random_Item {
 		
 		protected static $types = array();
 		public static $randomNumberGenerator;
 		
-		public static function getFunction($type, $details) {
+		public static function get($type) {
 			self::setRandomNumberGenerator();
 			$selectionType = self::getSelectionType($type);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
@@ -15,7 +15,7 @@
 			return $randomItem;
 		}
 		
-		public static function getSelectionTypeFunction($type, $details) {
+		public static function getSelectionType($type) {
 			$rightIsHigh = App::$cache->get('right_is_high');
 			if($type == 'right') {
 				$selectionType = $rightIsHigh ? 'high' : 'low';
@@ -37,14 +37,7 @@
 				},	
 			);
 		}
-		
-		public static function leftType() {
-			return array(
-				'get_from_collection' => function($collection, $selectionType) {
-				},	
-			);
-		}
-		
+				
 		public static function getItemWithOffset($collection, $offset) {
 			$item = $collection->find_many()
 				->find_one()
