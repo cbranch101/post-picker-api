@@ -24,12 +24,10 @@
 						->values()
 					->value();
 					
-					print_r($randomItems);
-										
 					return $randomItems;
 		
 				},
-				'output_key' => 'random_items',
+				'output_key' => 'posts',
 			);
 		}
 		
