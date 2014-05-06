@@ -11,9 +11,10 @@
 		}
 		
 		public static function getRandomOffset($lowPercentage, $highPercentage) {
+			$generator = App::$cache->get('random_number_generator');
 			$offsetMin = self::getTotalItemOffset($lowPercentage);
 			$offsetMax = self::getTotalItemOffset($highPercentage);
-			return rand($offsetMin, $offsetMax);
+			return $generator->rand($offsetMin, $offsetMax);
 		}
 		
 		public static function getTotalItemOffset($percentage) {
