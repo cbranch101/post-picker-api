@@ -176,6 +176,21 @@
 			return $stubCache;
 		}
 		
+		public static function getStubRandomNumberGenerator($test, $stubRandomValues) {
+			
+			$stubRandomNumberGenerator = $test->getMock('Random_Number_Generator');
+			$stubRandomNumberGenerator->expects($test->any())
+				->method('rand')
+				->will($test->returnCallback(
+	                function($min, $max) use(&$stubRandomValues) {
+						$currentValue = array_shift($stubRandomValues);
+						return $currentValue;
+	                }
+                ));
+                
+			return $stubRandomNumberGenerator;
+		}
+		
 		public function getRandomItemEntryPoint() {
 			$test = $this;
 			return array(
