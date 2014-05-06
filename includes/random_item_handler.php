@@ -17,9 +17,24 @@
 			$processedItem['metric'] = $randomItem['likes']['value'];
 			$processedItem['is_correct'] = $selectionType == 'high' ? true : false;
 			$processedItem['message'] = $randomItem['message']['formatted_value'];
-			$processedItem['image_url'] = $randomItem['message']['data']['post_picture_url'];
-
+			$imageURL = $randomItem['message']['data']['post_picture_url'];
+			$processedItem = self::setImageURLs($processedItem, $imageURL);
+			
 			return $processedItem;
+		}
+		
+		public static function setImageURLs($processedItem, $imageURL) {
+			
+			$processedItem['image_url'] = $imageURL;
+			$processedItem['big_image_url'] = self::getBigImageURL($imageURL);
+			return $processedItem;
+		} 
+		
+		public static function getBigImageURL($imageURL) {
+			$urlPieces = explode('_s.jpg', $imageURL);
+			$urlPieces[1] = '_o.jpg';
+			$bigImageURL = implode('', $urlPieces);
+			return $bigImageURL;
 		}
 				
 		public static function getSelectionType($randomItemType) {

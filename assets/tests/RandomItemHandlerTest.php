@@ -226,7 +226,7 @@
 					'message' => $process('Test', 'Test',
 						array(
 							'has_picture' => true,
-							'post_picture_url' => 'test.jpg',
+							'post_picture_url' => 'test_s.jpg',
 						)
 					),
 				);
@@ -329,7 +329,8 @@
 								'message' => 'Test',
 								'metric' => 800,
 								'is_correct' => true,
-								'image_url' => 'test.jpg',
+								'image_url' => 'test_s.jpg',
+								'big_image_url' => 'test_o.jpg',
 							),
 						),
 					),	
@@ -507,7 +508,8 @@
 									'metric' => 300,
 									'message' => 'Test',
 									'is_correct' => false,
-									'image_url' => 'test.jpg',
+									'image_url' => 'test_s.jpg',
+									'big_image_url' => 'test_o.jpg',
 								),
 							),
 						);
