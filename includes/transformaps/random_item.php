@@ -10,6 +10,12 @@
 			return $details['get_from_collection']($collection);
 		}
 		
+		public static function setRandomNumberGenerator() {
+			if(self::$randomNumberGenerator == null) {
+				self::$randomNumberGenerator = new Random_Number_Generator();
+			}
+		}
+		
 		public static function rightType() {
 			return array(
 				'get_from_collection' => function($collection) {
