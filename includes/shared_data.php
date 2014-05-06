@@ -47,8 +47,6 @@
 				->find_many($this->get('facebook_filter_query'))
 				->count();
 				
-			print_r(App::$cache->get('collection_name'));
-				
 			return $count;
 		}
 		
