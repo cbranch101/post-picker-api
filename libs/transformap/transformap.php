@@ -3,21 +3,23 @@
 	class TransforMap {
 		
 		
-		protected static $types = null;
-		protected static $className = null;
+		protected static $types = array();
 		
 		public static function getAllTypes() {
-			static::setTypes();
+			self::setTypes();
 			return static::$types;			
 		}
 		
 		public static function __callStatic($name, $arguments) {
-			$allTypes = static::getAllTypes();
+			$currentClass = get_called_class();
+			 
+			$allTypes = self::getAllTypes();
+			
 			$type = array_shift($arguments);
 			if(isset($allTypes[$type])) {
 				$details = $allTypes[$type];
 			} else {
-				Throw new Exception("$type is not a defined type");
+				Throw new Exception("$type is not a defined type in " . $currentClass);
 			}
 			
 			// add the arguments back in
@@ -26,15 +28,16 @@
 			
 			$functionName = $name . 'Function';
 			
-			return call_user_func_array(array(static::$className, $functionName), $arguments);
+			return call_user_func_array(array($currentClass, $functionName), $arguments);
 		}
 		
 		protected static function setTypes() {
+			$currentClass = get_called_class();
+			
 			if(static::$types == null) {
-				$typeArray = static::buildIndexedArrayBasedOnSuffix('Type');
-				$that = static::$className;
-				$typeArray = __::map($typeArray, function($details, $type) use($that){
-					$details = $that::initializeTypeArrays($type, $details);
+				$typeArray = self::buildIndexedArrayBasedOnSuffix('Type');
+				$typeArray = __::map($typeArray, function($details, $type) use($currentClass){
+					$details = $currentClass::initializeTypeArrays($type, $details);
 					return $details;
 				});
 				static::$types = $typeArray;
@@ -47,9 +50,8 @@
 		
 		protected static function buildIndexedArrayBasedOnSuffix($suffix) {
 			$indexedArray = array();
-			static::$className = get_called_class();
-			$classMethods = get_class_methods(static::$className);
-			$currentClass = static::$className;
+			$currentClass = get_called_class();
+			$classMethods = get_class_methods($currentClass);
 			__::map($classMethods, function($classMethod) use($suffix, &$indexedArray, $currentClass){
 				
 				// split up the method name

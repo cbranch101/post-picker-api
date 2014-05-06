@@ -26,6 +26,10 @@ App::$instance = $app;
 			'includes' => array(
 				'config.php',
 				'app.php',
+				'shared_data.php',
+				'transformaps/data_pipeline.php',
+				'transformaps/output_array.php',
+				'transformaps/random_item.php',
 			),
 		),
 	);

@@ -6,6 +6,7 @@
 		
 		static $mongoDatabase;
 		static $mongoURI;
+		static $cache;
 		static $instance;
 		
 		static function setEnvironment($currentEnvironment, $environments, $databases) {
