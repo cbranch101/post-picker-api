@@ -32,17 +32,20 @@
 			return array(
 				'get_from_collection' => function($collection, $selectionType) {
 					$totalItems = App::$cache->get('total_items');
-											
 					$offset = Random_Selection::getRandomOffset($selectionType);
-										
-					$results = $collection->find_many()
-						->find_one()
-						->skip($offset - 1)
-						->as_array();
-					
-					return $results;
+					$randomItem = Random_Item::getItemWithOffset($collection, $offset);		
+					return $randomItem;
 				},	
 			);
+		}
+		
+		public static function getItemWithOffset($collection, $offset) {
+			$item = $collection->find_many()
+				->find_one()
+				->skip($offset - 1)
+				->as_array();
+				
+			return reset($item);
 		}
 						
 		public static function leftType() {

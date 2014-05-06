@@ -9,9 +9,9 @@
 		public static function getRandomOffsetFunction($type, $details) {
 			$offsetParams = $details['offset_params'];
 			$offset = self::calculateRandomOffset($offsetParams['min'], $offsetParams['max']);
-			print_r($offset);
 			return $offset;
 		}
+		
 		
 		public static function calculateRandomOffset($lowPercentage, $highPercentage) {
 			$generator = App::$cache->get('random_number_generator');
