@@ -35,7 +35,7 @@
 		}
 		
 		public function dashboard_id() {
-			return $this->getFromRequestParams('dashboard_id', null);
+			return $this->getFromRequestParams('dashboard_id', null, true);
 		}
 		
 		public function collection_name() {
@@ -69,9 +69,12 @@
 			return $value > 5;
 		}
 				
-		public function getFromRequestParams($key, $emptyValue) {
+		public function getFromRequestParams($key, $emptyValue, $required = false) {
 			$requestParams = $this->get('request_params');
-			return __::grab($requestParams, $key, $emptyValue);
+			$value = __::grab($requestParams, $key, $emptyValue);
+			if($value == $emptyValue && $required) {
+				throw new Exception("$key is required in request params");
+			}
 		}			
 	
 	}
