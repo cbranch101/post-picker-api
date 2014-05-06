@@ -74,7 +74,7 @@ App::$instance = $app;
 		),
 	);
 	
-	App::setEnvironment($currentEnvironment, $environments, $databases, $branch);
+	App::setEnvironment($currentEnvironment, $environments, $databases);
 		
 	MongORM::connect(App::$mongoDatabase, App::$mongoURI);
 	
