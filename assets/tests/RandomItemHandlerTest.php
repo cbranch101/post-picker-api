@@ -242,6 +242,38 @@
 				$getGoodPost(8, 800),
 				$getGoodPost(9, 900),
 				$getGoodPost(10, 1000),
+				
+				// should be filtered out
+				array(
+					'_id' => 11,
+					'likes' => array(
+						'value' => 500,
+						'formatted_value' => null,
+					),
+					'message' => array(
+						'value' => 'Test',
+						'formatted_value' => '',
+						'data' => array(
+							'has_picture' => true,
+						),
+					),
+				),
+				
+				// should be filtered out
+				array(
+					'_id' => 12,
+					'likes' => array(
+						'value' => 500,
+						'formatted_value' => null,
+					),
+					'message' => array(
+						'value' => 'Test',
+						'formatted_value' => 'Test',
+						'data' => array(
+							'has_picture' => false,
+						),
+					),
+				),
 			);
 		}
 				
