@@ -7,7 +7,12 @@
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
 			$offset = Random_Selection::getRandomOffset($selectionType);
-			$randomItem = self::getItemWithOffset($collection, $offset);		
+			$randomItem = self::getItemWithOffset($collection, $offset);
+			$randomItem = self::processRandomItem($randomItem, $selectionType);		
+			return $randomItem;
+		}
+		
+		public static function processRandomItem($randomItem, $selectionType) {
 			return $randomItem;
 		}
 		
