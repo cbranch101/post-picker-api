@@ -13,6 +13,14 @@
 		}
 		
 		public static function processRandomItem($randomItem, $selectionType) {
+			$keysToUnset = array(
+				'_id',
+			);
+			
+			__::map($keysToUnset, function($keyToUnset) use(&$randomItem){
+				unset($randomItem[$keyToUnset]);
+			});
+			
 			return $randomItem;
 		}
 		
