@@ -435,5 +435,16 @@
 			self::buildTest($test);
 			
 		}
+		
+		public function testLeftRandomItem() {
+						
+			$test = array(
+				'configuration' => 'right',
+				'entry_point' => 'get_random_item',
+			);
+			
+			self::buildTest($test);
+			
+		}
 														
 }
