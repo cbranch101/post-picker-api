@@ -34,7 +34,7 @@
 					$totalItems = App::$cache->get('total_items');
 											
 					$offset = Random_Selection::getRandomOffset($selectionType);
-					
+										
 					$results = $collection->find_many()
 						->find_one()
 						->skip($offset - 1)

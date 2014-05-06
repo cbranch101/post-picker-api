@@ -12,7 +12,10 @@
 		
 		public static function highType() {
 			return array(
-				
+				'offset_params' => array(
+					'min' => '.70',
+					'max' => '.90',
+				),
 			);
 		}
 		
