@@ -206,55 +206,42 @@
 		}
 		
 		public function getProcessedPostCollection() {
-			$process = function($value, $formattedValue = null){
-				return array(
+			$process = function($value, $formattedValue = null, $data = null){
+				$value =  array(
 					'value' => $value,
 					'formatted_value' => $formattedValue,
+				);
+				
+				if($data != null) {
+					$value['data'] = $data;
+				}
+				
+				return $value;
+			};
+			
+			$getGoodPost = function($id, $likes) use($process){
+				return array(
+					'_id' => $id,
+					'likes' => $process($likes),
+					'message' => $process('Test', 'Test',
+						array(
+							'has_picture' => true,
+						)
+					),
 				);
 			};
 			
 			return array(
-				array(
-					'_id' => 1,
-					'likes' => $process(100),
-				),
-				array(
-					'_id' => 2,
-					'likes' => $process(200),
-				),
-				array(
-					'_id' => 3,
-					'likes' => $process(300),
-				),
-				array(
-					'_id' => 4,
-					'likes' => $process(400),
-				),
-				array(
-					'_id' => 5,
-					'likes' => $process(500),
-				),
-				array(
-					'_id' => 6,
-					'likes' => $process(600),
-				),
-				array(
-					'_id' => 7,
-					'likes' => $process(700),
-				),
-				array(
-					'_id' => 8,
-					'likes' => $process(800),
-				),
-				array(
-					'_id' => 9,
-					'likes' => $process(900),
-				),
-				array(
-					'_id' => 10,
-					'likes' => $process(1000),
-				),
-				
+				$getGoodPost(1, 100),
+				$getGoodPost(2, 200),
+				$getGoodPost(3, 300),
+				$getGoodPost(4, 400),
+				$getGoodPost(5, 500),
+				$getGoodPost(6, 600),
+				$getGoodPost(7, 700),
+				$getGoodPost(8, 800),
+				$getGoodPost(9, 900),
+				$getGoodPost(10, 1000),
 			);
 		}
 				
