@@ -55,7 +55,8 @@
 		
 		// randomly select if right should be high or low
 		public function right_is_high() {
-			$value = Random_Item::$randomNumberGenerator->rand(1, 10);
+			$generator = $this->get('random_number_generator');
+			$value = $generator->rand(1, 10);
 			print_r($value);
 			return $value > 5;
 		}
