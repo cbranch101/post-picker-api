@@ -4,9 +4,8 @@
 				
 		public static function getItem($randomItemType) {
 			$selectionType = self::getSelectionType($randomItemType);
-			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
-			$randomItem = self::getItemUsingSelectionType($collection, $selectionType);
+			$randomItem = self::getItemUsingSelectionType($selectionType);
 			$randomItem = self::processRandomItem($randomItem, $selectionType);		
 			return $randomItem;
 		}
@@ -46,7 +45,8 @@
 			return $selectionType;
 		}
 				
-		public static function getItemUsingSelectionType($collection, $selectionType) {
+		public static function getItemUsingSelectionType($selectionType) {
+			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$offset = Random_Selection::getRandomOffset($selectionType);
 			$response = $collection->find_many()
 				->find_one(App::$cache->get('facebook_filter_query'))
@@ -59,7 +59,7 @@
 			$item = reset($response);
 			
 			if(self::itemHasInvalidPostPictureURL($item)) {
-				echo 'post is invalid';
+				$item = self::getItemUsingSelectionType($selectionType);
 			}
 			
 			return $item;
