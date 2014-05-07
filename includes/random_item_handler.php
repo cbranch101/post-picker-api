@@ -29,11 +29,24 @@
 		} 
 		
 		public static function getBigImageURL($imageURL) {
-			$urlPieces = explode('_s.jpg', $imageURL);
-			$urlPieces[1] = '_o.jpg';
-			$bigImageURL = implode('', $urlPieces);
+			$replaceStrings = array(
+				'_x.',
+				'_s.',
+				'_a.',
+				'_b.',
+			);
+			
+			$replaced = false;
+			
+			__::map($replaceStrings, function($replaceString) use($imageURL, &$bigImageURL, &$replaced){
+				$updatedURL = str_replace($replaceString, '_o.', $imageURL);
+				if($updatedURL != $imageURL && !$replaced) {
+					$bigImageURL = $updatedURL;
+					$replaced = true;
+				}
+			});
 			return $bigImageURL;
-		}
+		}		
 				
 		public static function getSelectionType($randomItemType) {
 			$rightIsHigh = App::$cache->get('right_is_high');
