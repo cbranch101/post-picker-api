@@ -58,7 +58,22 @@
 				
 			$item = reset($response);
 			
+			if(self::itemHasInvalidPostPictureURL($item)) {
+				echo 'post is invalid';
+			}
+			
 			return $item;
+		}
+		
+		public static function itemHasInvalidPostPictureURL($item) {
+			$stringStartsWith = function($needle, $haystack) {
+				return $needle === "" || strpos($haystack, $needle) === 0;
+			};
+			
+			$postPictureURL = $item['message']['data']['post_picture_url'];
+			$invalidURLStart = 'https://fbexternal-a.akamaihd.net/safe_image';
+						
+			return $stringStartsWith($invalidURLStart, $postPictureURL);
 		}
 								
 	}
