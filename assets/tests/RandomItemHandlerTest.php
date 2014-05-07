@@ -233,7 +233,27 @@
 			};
 			
 			return array(
-				$getGoodPost(8, 800),
+				
+				
+				// this type of post will come back but be ignored because it has the wrong 
+				// image url format
+				// I.E there's no way to substitue this url for a bigger image
+				array(
+					'_id' => 8,
+					'likes' => array(
+						'value' => 800,
+						'formatted_value' => null,
+					),
+					'message' => array(
+						'value' => 'Test',
+						'formatted_value' => 'Test',
+						'data' => array(
+							'has_picture' => true,
+							'post_picture_url' => 'https://fbexternal-a.akamaihd.net/safe_image.php'
+						),
+					),
+				),
+
 				$getGoodPost(2, 200),
 				$getGoodPost(3, 300),
 				$getGoodPost(7, 700),
