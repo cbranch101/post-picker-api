@@ -48,7 +48,7 @@
 				
 		public static function getItemUsingSelectionType($collection, $selectionType) {
 			$offset = Random_Selection::getRandomOffset($selectionType);
-			$item = $collection->find_many()
+			$response = $collection->find_many()
 				->find_one(App::$cache->get('facebook_filter_query'))
 				->sort(
 					array('likes.value' => 1)
@@ -56,7 +56,9 @@
 				->skip($offset - 1)
 				->as_array();
 				
-			return reset($item);
+			$item = reset($response);
+			
+			return $item;
 		}
 								
 	}
