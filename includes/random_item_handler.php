@@ -6,8 +6,7 @@
 			$selectionType = self::getSelectionType($randomItemType);
 			$collection = MongORM::for_collection(App::$cache->get('collection_name'));
 			$totalItems = App::$cache->get('total_items');
-			$offset = Random_Selection::getRandomOffset($selectionType);
-			$randomItem = self::getItemWithOffset($collection, $offset);
+			$randomItem = self::getItemUsingSelectionType($collection, $selectionType);
 			$randomItem = self::processRandomItem($randomItem, $selectionType);		
 			return $randomItem;
 		}
@@ -47,7 +46,8 @@
 			return $selectionType;
 		}
 				
-		public static function getItemWithOffset($collection, $offset) {
+		public static function getItemUsingSelectionType($collection, $selectionType) {
+			$offset = Random_Selection::getRandomOffset($selectionType);
 			$item = $collection->find_many()
 				->find_one(App::$cache->get('facebook_filter_query'))
 				->sort(
