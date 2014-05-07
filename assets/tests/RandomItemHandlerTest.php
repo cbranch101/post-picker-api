@@ -314,6 +314,11 @@
 						
 						// this is the value that will be used as the random offset
 						8,
+						
+						// this is the new new random value that occurs when the first post comes back with an invalid url
+						
+						9,
+						
 					),	
 				),
 				'extra_params' => array(
@@ -327,7 +332,7 @@
 							array(
 								'name' => 'right',
 								'message' => 'Test',
-								'metric' => 800,
+								'metric' => 900,
 								'is_correct' => true,
 								'image_url' => 'test_s.jpg',
 								'big_image_url' => 'test_o.jpg',
