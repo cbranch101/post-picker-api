@@ -77,8 +77,8 @@
 			
 			return $item;
 		}
-		
-		public static function itemHasInvalidPostPictureURL($item) {
+				
+		public static function isSafeImageURL($item) {
 			$stringStartsWith = function($needle, $haystack) {
 				return $needle === "" || strpos($haystack, $needle) === 0;
 			};

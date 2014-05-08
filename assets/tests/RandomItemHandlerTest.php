@@ -253,6 +253,22 @@
 						),
 					),
 				),
+				
+				array(
+					'_id' => 9,
+					'likes' => array(
+						'value' => 900,
+						'formatted_value' => null,
+					),
+					'message' => array(
+						'value' => 'Test',
+						'formatted_value' => 'Test',
+						'data' => array(
+							'has_picture' => true,
+							'post_picture_url' => 'https://test?=boo'
+						),
+					),
+				),
 
 				$getGoodPost(2, 200),
 				$getGoodPost(3, 300),
@@ -260,7 +276,6 @@
 				$getGoodPost(5, 500),
 				$getGoodPost(4, 400),
 				$getGoodPost(6, 600),
-				$getGoodPost(9, 900),
 				$getGoodPost(10, 1000),
 				$getGoodPost(1, 100),
 				
@@ -354,7 +369,7 @@
 							array(
 								'name' => 'right',
 								'message' => 'Test',
-								'metric' => 900,
+								'metric' => 700,
 								'is_correct' => true,
 								'image_url' => 'test_s.jpg',
 								'big_image_url' => 'test_o.jpg',
