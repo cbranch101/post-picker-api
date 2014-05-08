@@ -77,16 +77,32 @@
 			
 			return $item;
 		}
+		
+		public static function itemHasInvalidPostPictureURL($item) {
+			$postPictureURL = $item['message']['data']['post_picture_url'];
+			if(self::isSafeImageURL($postPictureURL) || self::hasURLParam($postPictureURL)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		public static function hasURLParam($url) {
+			if(strpos($url,'?') !== false) {
+				return true;	
+			} else {
+				return false;
+			}
+		}
 				
-		public static function isSafeImageURL($item) {
+		public static function isSafeImageURL($url) {
 			$stringStartsWith = function($needle, $haystack) {
 				return $needle === "" || strpos($haystack, $needle) === 0;
 			};
 			
-			$postPictureURL = $item['message']['data']['post_picture_url'];
 			$invalidURLStart = 'https://fbexternal-a.akamaihd.net/safe_image';
 						
-			return $stringStartsWith($invalidURLStart, $postPictureURL);
+			return $stringStartsWith($invalidURLStart, $url);
 		}
 								
 	}
